@@ -15,6 +15,7 @@ import sys
 import json
 import getopt
 
+print(os.getcwd())
 
 # source_directory = str(input("Please enter the relative path to the wakeword recordings directory (ie audio/):\n"))
 
@@ -22,7 +23,7 @@ import getopt
 
 # TODO: write data requirements for each flow (include urls)
 with open(
-    os.path.join(os.path.dirname(__file__), "..", "data_prep_user_configuration.json"),
+    os.getcwd() + "/config/data_prep_user_configuration.json",
     "r",
 ) as file:
     user_configuration_dictionary = json.load(file)
@@ -44,9 +45,7 @@ max_files_per_destination_directory = user_configuration_dictionary[
 ]
 
 with open(
-    os.path.join(
-        os.path.dirname(__file__), "..", "data_prep_system_configuration.json"
-    ),
+    os.getcwd() + "/config/data_prep_system_configuration.json",
     "r",
 ) as file:
     system_configuration_dictionary = json.load(file)
