@@ -13,25 +13,32 @@
     "source_directories": [
         "background_noise/wake-word/",
         "background_noise/wake-word/variations/",
+        "background_noise/wake-word/TTS/",
         "background_noise/test/wake-word/",
-        "background_noise/test/wake-word/variations/"
+        "background_noise/test/wake-word/variations/",
+        "background_noise/test/wake-word/TTS/"
         ],
     "destination_directories": [
         "wake-word/background_noise/",
         "wake-word/background_noise/variations/",
+        "wake-word/background_noise/TTS/",
         "test/wake-word/background_noise/",
-        "test/wake-word/background_noise/variations/"
+        "test/wake-word/background_noise/variations/",
+        "test/wake-word/background_noise/TTS/"
         ],
 
     "directories_to_gauss": [
         "/wake-word/",
         "/wake-word/variations/",
+        "/wake-word/TTS/",
         "/not-wake-word/background/",
         "/not-wake-word/parts/",
+        "/not-wake-word/TTS/",
         "/test/wake-word/",
         "/test/wake-word/variations/",
         "/test/not-wake-word/background/",
-        "/test/not-wake-word/parts/"
+        "/test/not-wake-word/parts/",
+        "/test/not-wake-word/TTS/"
         ]
 
 }

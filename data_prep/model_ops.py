@@ -4,6 +4,7 @@ from data_prep.fs_ops import BasicFileOperations
 from numpy.lib.function_base import copy
 from os.path import isdir
 from os import mkdir
+from os.path import exists
 
 # TODO: wrap this class around the data
 # and directories associated with each expiremental model
@@ -148,6 +149,8 @@ class TrainTestSplit:
         if not isdir("out"):
             mkdir("out")
 
+        TTS_path = "out/TTS_generated_converted/"
+
         for model in model_names:
             destination_directory = "out/" + model + "/"
             self.split_multiple_directories(
@@ -157,6 +160,13 @@ class TrainTestSplit:
                 even_odd_split_directories,
                 three_four_split_directories,
             )
+            if exists(TTS_path):
+                self.split_directory(
+                    source_directory=TTS_path + 'wake-word/TTS/', training_directory=destination_directory + 'wake-word/TTS/', testing_directory=destination_directory + 'test/wake-word/TTS/', split_type='random')
+                self.split_directory(
+                    source_directory=TTS_path + 'not-wake-word/TTS/', training_directory=destination_directory +
+                                     'not-wake-word/TTS/', testing_directory=destination_directory + 'test/not-wake-word/TTS/', split_type='random')
+
         return model_names
 
     def split_incremental_results(self, model_name):

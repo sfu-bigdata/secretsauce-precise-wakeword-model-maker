@@ -15,7 +15,6 @@ import sys
 import json
 import getopt
 
-print(os.getcwd())
 
 # source_directory = str(input("Please enter the relative path to the wakeword recordings directory (ie audio/):\n"))
 
@@ -70,7 +69,7 @@ def do_all():
         even_odd_split_directories,
         three_four_split_directories,
         root_model_name,
-        wakeword_model_name,
+        wakeword_model_name
     )
     data_generation_flow(
         wakeword_model_name,
@@ -107,6 +106,7 @@ def interactive():
                 three_four_split_directories,
                 root_model_name,
                 wakeword_model_name,
+
             )
 
         elif cli_choice == "2":
@@ -166,6 +166,7 @@ def cli(arg_list):
                 three_four_split_directories,
                 root_model_name,
                 wakeword_model_name,
+
             )
         elif arg in ("-g", "--generate-data"):
             try:

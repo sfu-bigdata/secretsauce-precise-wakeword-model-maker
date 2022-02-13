@@ -155,7 +155,7 @@ def get_base_model_flow(
     even_odd_split_directories,
     three_four_split_directories,
     root_model_name,
-    wakeword_model_name,
+    wakeword_model_name
 ):
     random_user_recordings_directory = move_random_user_collection(source_directory)
 
@@ -194,6 +194,8 @@ def get_base_model_flow(
             wakeword_model_name=wakeword_model_name,
         )
     )
+
+
 
     print(dialog_handler_instance.render_template("inform-base_model_accuracies"))
     print(experimental_average_accuracy_dialog)

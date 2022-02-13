@@ -149,6 +149,10 @@ class BasicFileOperations:
         self.make_directory(destination_directory)
         if all(file.endswith(".wav") for file in files):
             print("All files are already in wav format")
+            for file in files:
+                sound = AudioSegment.from_file(source_directory + file)
+                if sound.frame_rate == 16000:
+                    self.copy_file(file, source_directory, destination_directory)
         else:
             print(f"Converting {len(files)} mp3 files to wav")
             for file in files:
