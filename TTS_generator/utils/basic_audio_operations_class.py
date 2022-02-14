@@ -1,6 +1,6 @@
 from pydub import AudioSegment
 from scipy.io import wavfile
-from utils.basic_file_operations_class import BasicFileOperations
+from TTS_generator.utils.basic_file_operations_class import BasicFileOperations
 
 
 class BasicAudioOperations:

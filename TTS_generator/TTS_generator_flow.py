@@ -1,7 +1,7 @@
 from os import makedirs
 
-from utils.TTS_generator_class import TTSGenerator
-from utils.basic_file_operations_class import BasicFileOperations
+from TTS_generator.utils.TTS_generator_class import TTSGenerator
+from TTS_generator.utils.basic_file_operations_class import BasicFileOperations
 
 
 def wakeword_generator_flow(wakeword_model_name):
@@ -35,5 +35,3 @@ def wakeword_generator_flow(wakeword_model_name):
     BasicFileOperations.delete_directory('./out/' + TTS_generated_directory + '/')
 
     print(f'{wakeword_model_name} TTS generated')
-
-wakeword_generator_flow('TTS_test')

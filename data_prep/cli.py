@@ -1,4 +1,5 @@
 import os
+from TTS_generator.TTS_generator_flow import wakeword_generator_flow
 from data_prep.dialog_handler import DialogHandler
 from data_prep.precise_ops import (
     BasicFileOperations,
@@ -88,8 +89,6 @@ def do_all():
 
 
 def interactive():
-    cli_text = "Please enter your choice\n1. Optimally split and create a base model from wake-word-recorder data\n2. Generate extra data\n3. Do it all\n\n"
-
     dialog_handler_instance = DialogHandler("dialog.json", "main_menu_dialog")
 
     while True:
@@ -98,7 +97,9 @@ def interactive():
         )
 
         if cli_choice == "1":
-            # TODO: test this flow
+            wakeword_generator_flow(wakeword_model_name)
+
+        if cli_choice == "2":
             base_model_info = get_base_model_flow(
                 source_directory,
                 random_split_directories,
@@ -109,7 +110,7 @@ def interactive():
 
             )
 
-        elif cli_choice == "2":
+        elif cli_choice == "3":
             # TODO: fix base_model_info, it doesn't show up in the flow
             try:
                 data_generation_flow(
@@ -130,7 +131,7 @@ def interactive():
                     base_model_info=None,
                 )
 
-        elif cli_choice == "3":
+        elif cli_choice == "4":
             further_data_generation_flow(
                 directories_to_process,
                 extra_audio_directories_labels,
@@ -139,11 +140,11 @@ def interactive():
                 wakeword_model_name,
             )
 
-        elif cli_choice == "4":
+        elif cli_choice == "5":
             do_all()
             sys.exit()
 
-        elif cli_choice == "5":
+        elif cli_choice == "6":
             sys.exit()
 
 

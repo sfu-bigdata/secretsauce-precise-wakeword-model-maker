@@ -5,7 +5,7 @@ import json
 
 from ovos_plugin_manager.tts import load_tts_plugin
 
-from utils.basic_audio_operations_class import BasicAudioOperations
+from TTS_generator.utils.basic_audio_operations_class import BasicAudioOperations
 
 class TTSGenerator:
     '''Scrape a bunch of TTS voices for data collection'''

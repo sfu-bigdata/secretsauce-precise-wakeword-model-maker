@@ -17,7 +17,7 @@
         "dialog_description": "main menu dialog to choose data prep options",
         "dialog_content": [
             {
-                "text": "Please enter your choice\n1. Create base model from wakeword recorder data\n2. Create improved model by generating extra data \n3. Further improve the model by processing and generating more data with more audio directories\n4. Do it all and exit\n5. Exit\n\n",
+                "text": "Please enter your choice\n1. Generate TTS wakeword data\n2. Optimally split and create a base model from wake-word-recorder data\n3. Generate extra data\n4. Generate further data from other data sets\n5. Do it all\n6. Exit\n\n",
                 "dialog_type": "input-numbered-main_choice"
             
             }
