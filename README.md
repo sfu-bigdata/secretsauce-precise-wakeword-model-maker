@@ -8,26 +8,44 @@ After collecting your wake word data set with the [wakeword data collection tool
 * generate background noise
 * incrementally train through other noise (ie common voice, pd)
 
-NOTE: The model analytics doesn't always pick the best-best model, a refactor is on the way to ensure that the best models are always picked. But it still performs better than anything I have ever seen so....
 
 # How does it work?
 TODO: come up with really chill explaination about data categories, sub-categories they boost the model, optimizing model selection and training, noisy data generation, automatically incrementally collecting new data, and curriculum learning. 
 
+## Installation
+### Manually installing with Python
+After following the instructions (NOTE: Mycroft Precise only works for Python versions up to 3.7.x!) to install from the [Mycroft Precise readme](https://github.com/secretsauceai/precise-wakeword-model-maker#source-install) (skip over the git clone part, I assume you have git cloned this repo), go into your venv (ie `source .venv/source/bin/activate`) and run `pip install -r requirements_data_prep.txt --force-reinstall` (there seems to currently be an issue with some of the requirements from the original precise not working with current versions of certain packages)
+### Dockerfile
+* Get the dockerfile from this repo 
+* `docker build -t precise-wakeword-model-maker .`
+* You can run the container with such a command:
+
+```
+docker run -it \
+  -v "local_directory_for_model_output:/app/out" \
+  -v "local_collected_audio_directory:/data" \
+  -v "local_directory_path_for_config/data_prep_user_configuration.json:/app/data_prep_user_configuration.json" \
+  precise-wakeword-model-maker
+  ```
+
 ## Usage: 
-* After following the instructions to install from the [Mycroft Precise readme](https://github.com/secretsauceai/precise-wakeword-model-maker#source-install) (skip over the git clone part, I assume you have git cloned this repo!), go into your venv (ie source .venv/source/bin/activate) and run `pip install -r requirements_data_prep.txt --force-reinstall` (there seems to currently be an issue with some of the requirements from the original precise not working with current versions of certain packages)
-* configure the  `data_prep_user_configuration.json` with the relative paths: 
+* configure the `config/data_prep_user_configuration.json` with the paths: 
 	* `audio_source_directory` (the main directory for the recordings from `wakeword_recorder`, 
 	* `wakeword_model_name` the name you want to give the wakeword model,
     * `pdsounds_directory` the directory to the mp3 (or wav) files: [pdsounds](http://pdsounds.tuxfamily.org/),
-	* `extra_audio_directories_to_process`, which are all of the extra audio datasets you have downloaded besides pdsounds,
-* and run `data_prep_ide.py`. 
+	* `extra_audio_directories_to_process`, which are all of the extra audio datasets you have downloaded besides pdsounds (see Data below)
+* configure the `config/TTS_wakeword_config.json` with your wakeword and the individual syllables of your wakeword,
+* configure the `config/TTS_engine_config.json` with your TTS settings,
+* and run `python -m data_prep.py`. 
 
 ##  Data
-It is important to note that downloading a lot of noise data is vital to producing a bullet proof wake word model. In addition it is important to note that data prep does not walk through sub directories of sound files. It only processes the top level directory. It is best to just dump audio files in the top level directory. The files can be in mp3 or wav format, data prep will convert them to wav with the the sample rate of `16000`.
+It is important to note that downloading a lot of data is vital to producing a bullet proof wake word model. In addition, it is important to note that data prep does not walk through sub directories of sound files. It only processes the top level directory. It is best to just dump audio files in the top level directory. The files can be in mp3 or wav format, data prep will convert them to wav with the the sample rate of `16000`.
 * [pdsounds](http://pdsounds.tuxfamily.org/)
 * [Precise community data](https://github.com/MycroftAI/Precise-Community-Data)
 * [Open Path Music Data](https://archive.org/download/OpenPathMusic44V5/OpenPathMusic44V5.zip)
 * [Common Voice](https://commonvoice.mozilla.org/en/datasets/) or from the [Kagle Common Voice](https://www.kaggle.com/mozillaorg/common-voice) dataset
+* TTS data set of [most popular EN-US words spoken by multiple TTS voices](http://downloads.openvoiceos.com/datasets/8kwordstts_en_0.1.tar.gz)
+
 
 This is still a work in progress. 
 
@@ -48,8 +66,7 @@ This is still a work in progress.
 * ~~Refactor model analytics and choosing the best model~~
 * ~~Refactor the training function to pass both measures: the default `loss` and `val_loss`~~
 * Test when and number of epochs to switch to `val_loss` (this prevents overfitting!)
-* Test smaller batch sizes and scaling them up
-* test output models (both tf1.13 and tflite) for production
+* test output models (both ~~tf1.13~~ and tflite) for production
    * hope this one passes 
-* CLI stuff
+* ~~CLI stuff~~
 * Clean up code (again!)
