@@ -64,6 +64,8 @@ directories_to_gauss = system_configuration_dictionary["directories_to_gauss"]
 
 
 def do_all():
+    wakeword_generator_flow(wakeword_model_name)
+
     get_base_model_flow(
         source_directory,
         random_split_directories,
@@ -150,14 +152,17 @@ def interactive():
 
 def cli(arg_list):
     # TODO add more options to override configs
-    short_options = "hbgea"
-    long_options = ["help", "base-model", "generate-data", "generate-extra", "all"]
+    short_options = "htbgea"
+    long_options = ["help", "tts-generation" "base-model", "generate-data", "generate-extra", "all"]
     args, _ = getopt.getopt(arg_list, short_options, long_options)
     print(args)
     for arg, _ in args:
         print(arg)
         if arg in ("-h", "--help"):
             print("unimplented, please try again later")
+        elif arg in ("-t", "--tts-generation"):
+            wakeword_generator_flow(wakeword_model_name)
+
         elif arg in ("-b", "--base-model"):
 
             base_model_info = get_base_model_flow(
