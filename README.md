@@ -24,7 +24,7 @@ After following the instructions (NOTE: Mycroft Precise only works for Python ve
 docker run -it \
   -v "local_directory_for_model_output:/app/out" \
   -v "local_collected_audio_directory:/data" \
-  -v "local_directory_path_for_config/data_prep_user_configuration.json:/app/data_prep_user_configuration.json" \
+  -v "local_directory_path_for_config/:/app/config" \
   precise-wakeword-model-maker
   ```
 
