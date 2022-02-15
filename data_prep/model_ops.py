@@ -161,7 +161,6 @@ class TrainTestSplit:
                 three_four_split_directories,
             )
             if exists(TTS_path):
-                print(TTS_path)
                 self.split_directory(
                     source_directory=TTS_path + 'wake-word/TTS/', training_directory=destination_directory + 'wake-word/TTS/', testing_directory=destination_directory + 'test/wake-word/TTS/', split_type='random')
                 self.split_directory(
