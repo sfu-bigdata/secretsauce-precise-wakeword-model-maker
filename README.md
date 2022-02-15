@@ -4,6 +4,7 @@
 ## Do you want your own personal wake word?
 
 After collecting your wake word data set with the [wakeword data collection tool](https://github.com/AmateurAcademic/wakeword-recorder-py), you can use this tool to:
+* generate TTS data
 * optimally split the test/training set (and test this split)
 * automatically select best base model
 * generate Gaussian noise
