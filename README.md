@@ -3,9 +3,9 @@
 ![Wake word](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_wakeword_scene_compressed.png?raw=true)
 ## Do you want your own personal wake word?
 
-The Precise Wakeword Model Maker takes a sparse amount of data (ie from the [Wakeword data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py)) and creates a production quality wakeword model. It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
+The Precise Wakeword Model Maker takes a sparse amount of data (ie from the [Wakeword Data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py)) and creates a production quality wakeword model. It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
 
-After collecting your wake word data set with the [Wakeword data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py), you can use this tool to:
+After collecting your wake word data set with the [Wakeword Data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py), you can use this tool to:
 * generate TTS data
 * optimally split the test/training set and test this split
 * automatically select best base model
@@ -55,7 +55,7 @@ It is important to note that downloading a lot of data is vital to producing a b
 ## Secret Sauce AI
 * [Secret Sauce AI Overview](https://github.com/secretsauceai/secret_sauce_ai)
 * [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project)
-    * [Wakeword data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py)
+    * [Wakeword Data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py)
     * [Precise TensorFlow Lite Engine](https://github.com/OpenVoiceOS/precise_lite_runner)
     * [Precise Rust Engine](https://github.com/sheosi/precise-rs)
     * [SpeechPy MFCC in Rust](https://github.com/secretsauceai/mfcc-rust)
