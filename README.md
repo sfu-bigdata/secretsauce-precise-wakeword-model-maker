@@ -3,9 +3,9 @@
 ![Wake word](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_wakeword_scene_compressed.png?raw=true)
 ## Do you want your own personal wake word?
 
-The Precise Wakeword Model Maker takes a sparse amount of data (ie from the [wakeword data collection tool](https://github.com/AmateurAcademic/wakeword-recorder-py)) and creates a production quality wakeword model. It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
+The Precise Wakeword Model Maker takes a sparse amount of data (ie from the [Wakeword data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py)) and creates a production quality wakeword model. It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
 
-After collecting your wake word data set with the [wakeword data collection tool](https://github.com/AmateurAcademic/wakeword-recorder-py), you can use this tool to:
+After collecting your wake word data set with the [Wakeword data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py), you can use this tool to:
 * generate TTS data
 * optimally split the test/training set and test this split
 * automatically select best base model
@@ -52,10 +52,16 @@ It is important to note that downloading a lot of data is vital to producing a b
 * TTS data set of [most popular EN-US words spoken by multiple TTS voices](http://downloads.openvoiceos.com/datasets/8kwordstts_en_0.1.tar.gz)
 
 
-This is still a work in progress. 
-
+## Secret Sauce AI
+* [Secret Sauce AI Overview](https://github.com/secretsauceai/secret_sauce_ai)
+* [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project)
+    * [Wakeword data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py)
+    * [Precise TensorFlow Lite Engine](https://github.com/OpenVoiceOS/precise_lite_runner)
+    * [Precise Rust Engine](https://github.com/sheosi/precise-rs)
+    * [SpeechPy MFCC in Rust](https://github.com/secretsauceai/mfcc-rust)
 
 ## ToDO
+This is still a work in progress. 
 * ~~in `test_train_split()` change paragraph and variations to an even/odd split instead of random~~
 * ~~in `run_precise_train` how do you run the training properly (in command line: precise-train) from the class or otherwise? It seems to run with only one parameter where we have `precise-train -e 350 self.experiment_path_01 experiment_01.net`~~
 * ~~refactor code for repeatitive code~~
