@@ -14,8 +14,10 @@ After collecting your wake word data set with the [Wakeword Data Collector](http
 * incrementally train through other noise and audio datasets (ie common voice, pdsounds)
 
 
-# How does it work?
-TODO: come up with really chill explaination about data categories, sub-categories they boost the model, optimizing model selection and training, noisy data generation, automatically incrementally collecting new data, and curriculum learning. 
+## How does it work?
+### 1. A user follows a data collection recipe
+![data collection recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_01.png)
+The less the user has to initially collect, the better. 
 
 ## Installation
 ### Manually installing with Python
