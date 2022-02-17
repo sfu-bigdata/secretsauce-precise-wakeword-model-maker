@@ -3,7 +3,7 @@
 ![Wake word](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_wakeword_scene_compressed.png?raw=true)
 ## Do you want your own personal wake word?
 
-The Precise Wakeword Model Maker takes a sparse amount of data (ie from the [Wakeword Data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py)) and creates a production quality wakeword model. It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
+The Precise Wakeword Model Maker takes a sparse amount of data and creates a production quality wakeword model. It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
 
 After collecting your wake word data set with the [Wakeword Data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py), you can use this tool to:
 * generate TTS data
@@ -14,10 +14,6 @@ After collecting your wake word data set with the [Wakeword Data Collector](http
 * incrementally train through other noise and audio datasets (ie common voice, pdsounds)
 
 
-## How does it work?
-### 1. A user follows a data collection recipe
-![data collection recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_01.png)
-The less the user has to initially collect, the better. 
 
 ## Installation
 ### Manually installing with Python
