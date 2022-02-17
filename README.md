@@ -34,7 +34,7 @@ Speaking of lessons, you don't learn by reading pages of a text book in a totall
 ![noise generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_04.png)
 Gaussian noise is mixed into the pre-existing audio recordings, this helps make the model more robust and helps with generalization of the model.
 
-A user can use other noisy data sets (ie [pdsounds](http://pdsounds.tuxfamily.org/)) to generate further background noise into existing audio files, further ensuring a robust model that can wake up even in noisy environments.
+A user can use other noisy data sets (ie [pdsounds](http://pdsounds.tuxfamily.org/)) to generate background noise into existing audio files, further ensuring a robust model that can wake up even in noisy environments.
 
 
 # Installation
