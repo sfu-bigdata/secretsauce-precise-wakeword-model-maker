@@ -24,6 +24,8 @@ A user can use the [Wakeword Data Collector](https://github.com/secretsauceai/wa
 ![TTS voices recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_02.png)
 When you don't have enough data to train a model, generate it. TTS engines are scraped similar to the data collection recipe using TTS plugins from [OpenVoiceOS](https://openvoiceos.com/). The more the better! 
 
+# TODO: add in best model selection
+
 ### Incremental and curriculum learning
 ![model generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_03.png)
 Only add false positives to the training/test set! Why add a bunch of files that the model can classify, when you can give the model lessons where it needs to improve. 
