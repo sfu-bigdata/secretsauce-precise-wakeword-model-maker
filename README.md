@@ -5,7 +5,7 @@
 
 The Precise Wakeword Model Maker takes a sparse amount of data and creates a production quality wakeword model. It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
 
-After collecting your wake word data set with the [Wakeword Data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py), you can use this tool to:
+After collecting your wake word data set with the [Wakeword Data Collector](https://github.com/secretsauceai/wakeword-data-collector), you can use this tool to:
 * generate TTS data
 * optimally split the test/training set and test this split
 * automatically select best base model
@@ -13,6 +13,24 @@ After collecting your wake word data set with the [Wakeword Data Collector](http
 * generate background noise
 * incrementally train through other noise and audio datasets (ie common voice, pdsounds)
 
+## How does it work?
+### A user follows a data collection recipe
+![data collection recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_01.png)
+The less the user has to initially collect, the better. 
+A user can use the [Wakeword Data Collector](https://github.com/secretsauceai/wakeword-data-collector)
+
+### Precise Wakeword Model Maker recipes
+#### TTS voice data generation
+When you don't have enough data to train a model, generate it. TTS engines are scraped similar to the data collection recipe using plugins from OpenVoiceOS. The more the better! 
+#### Incremental and curriculum learning
+Only add false positives to the training/test set! Why add a bunch of files that the model can classify when you can only give the model lessons where it has difficults. 
+
+Speaking of lessons, you don't learn by reading pages of a text book in a totally random order do you? Why should a machine learning model be subjected to this added difficutly in learning? Let the machine learn with an ordered curriculum of data. This usually boosts the model's performance over the shotgun approach by 5%-10%. Not bad!
+
+#### Noise generation recipes
+![data generation recipes](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_02.png)
+* Gaussian noise is mixed into the pre-existing audio recordings, this helps make the model more robust and helps with generalization of the model.
+* A user can user other noisy data sets (ie [pdsounds](http://pdsounds.tuxfamily.org/)) to generate further background noise into existing audio files, further ensuring a robust model that can wake up even in noisy environments 
 
 
 ## Installation
