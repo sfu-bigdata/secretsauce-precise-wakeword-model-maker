@@ -13,33 +13,35 @@ After collecting your wake word data set with the [Wakeword Data Collector](http
 * generate background noise
 * incrementally train through other noise and audio datasets (ie common voice, pdsounds)
 
-## How does it work?
-### A user follows a data collection recipe
+# How does it work?
+## A user follows a data collection recipe
 ![data collection recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_01.png)
 The less the user has to initially collect, the better. 
 A user can use the [Wakeword Data Collector](https://github.com/secretsauceai/wakeword-data-collector)
 
-### Precise Wakeword Model Maker recipes
-#### TTS voice data generation
+## Precise Wakeword Model Maker recipes
+### TTS voice data generation
 ![TTS voices recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_02.png)
 When you don't have enough data to train a model, generate it. TTS engines are scraped similar to the data collection recipe using TTS plugins from [OpenVoiceOS](https://openvoiceos.com/). The more the better! 
-#### Incremental and curriculum learning
+
+### Incremental and curriculum learning
 ![model generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_03.png)
 Only add false positives to the training/test set! Why add a bunch of files that the model can classify, when you can give the model lessons where it needs to improve. 
 
 Speaking of lessons, you don't learn by reading pages of a text book in a totally random order, do you? Why should a machine learning model be subjected to this added difficutly in learning? Let the machine learn with an ordered curriculum of data. This usually boosts the model's performance over the shotgun approach by 5%-10%. Not bad!
 
-#### Noise generation recipes
+### Noise generation recipes
 ![noise generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_04.png)
 Gaussian noise is mixed into the pre-existing audio recordings, this helps make the model more robust and helps with generalization of the model.
 
 A user can use other noisy data sets (ie [pdsounds](http://pdsounds.tuxfamily.org/)) to generate further background noise into existing audio files, further ensuring a robust model that can wake up even in noisy environments.
 
 
-## Installation
-### Manually installing with Python
+# Installation
+## Manually installing with Python
 After following the instructions (NOTE: Mycroft Precise only works for Python versions up to 3.7.x!) to install from the [Mycroft Precise readme](https://github.com/secretsauceai/precise-wakeword-model-maker#source-install) (skip over the git clone part, I assume you have git cloned this repo), go into your venv (ie `source .venv/source/bin/activate`) and run `pip install -r requirements_data_prep.txt --force-reinstall` (there seems to currently be an issue with some of the requirements from the original precise not working with current versions of certain packages)
-### Dockerfile
+
+## Dockerfile
 * Get the dockerfile from this repo 
 * `docker build -t precise-wakeword-model-maker .`
 * You can run the container with such a command:
@@ -52,7 +54,7 @@ docker run -it \
   precise-wakeword-model-maker
   ```
 
-## Usage: 
+# Usage: 
 * configure the `config/data_prep_user_configuration.json` with the paths: 
 	* `audio_source_directory` (the main directory for the recordings from `wakeword_recorder`, 
 	* `wakeword_model_name` the name you want to give the wakeword model,
@@ -62,7 +64,7 @@ docker run -it \
 * configure the `config/TTS_engine_config.json` with your TTS settings,
 * and run `python -m data_prep.py`. 
 
-##  Data
+#  Data
 It is important to note that downloading a lot of data is vital to producing a bullet proof wake word model. In addition, it is important to note that data prep does not walk through sub directories of sound files. It only processes the top level directory. It is best to just dump audio files in the top level directory. The files can be in mp3 or wav format, data prep will convert them to wav with the the sample rate of `16000`.
 * [pdsounds](http://pdsounds.tuxfamily.org/)
 * [Precise community data](https://github.com/MycroftAI/Precise-Community-Data)
@@ -71,7 +73,7 @@ It is important to note that downloading a lot of data is vital to producing a b
 * TTS data set of [most popular EN-US words spoken by multiple TTS voices](http://downloads.openvoiceos.com/datasets/8kwordstts_en_0.1.tar.gz)
 
 
-## Secret Sauce AI
+# Secret Sauce AI
 * [Secret Sauce AI Overview](https://github.com/secretsauceai/secret_sauce_ai)
 * [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project)
     * [Wakeword Data Collector](https://github.com/AmateurAcademic/wakeword-recorder-py)
@@ -79,7 +81,7 @@ It is important to note that downloading a lot of data is vital to producing a b
     * [Precise Rust Engine](https://github.com/sheosi/precise-rs)
     * [SpeechPy MFCC in Rust](https://github.com/secretsauceai/mfcc-rust)
 
-## ToDO
+# ToDO
 This is still a work in progress. 
 * ~~in `test_train_split()` change paragraph and variations to an even/odd split instead of random~~
 * ~~in `run_precise_train` how do you run the training properly (in command line: precise-train) from the class or otherwise? It seems to run with only one parameter where we have `precise-train -e 350 self.experiment_path_01 experiment_01.net`~~
