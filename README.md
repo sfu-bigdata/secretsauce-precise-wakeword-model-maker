@@ -54,7 +54,7 @@ docker run -it \
   precise-wakeword-model-maker
   ```
 
-# Usage: 
+# Usage
 * configure the `config/data_prep_user_configuration.json` with the paths: 
 	* `audio_source_directory` (the main directory for the recordings from `wakeword_recorder`, 
 	* `wakeword_model_name` the name you want to give the wakeword model,
