@@ -54,15 +54,22 @@ docker run -it \
   precise-wakeword-model-maker
   ```
 
-# Usage
+# Configuration
 * configure the `config/data_prep_user_configuration.json` with the paths: 
 	* `audio_source_directory` (the main directory for the recordings from `wakeword_recorder`, 
 	* `wakeword_model_name` the name you want to give the wakeword model,
     * `pdsounds_directory` the directory to the mp3 (or wav) files: [pdsounds](http://pdsounds.tuxfamily.org/),
 	* `extra_audio_directories_to_process`, which are all of the extra audio datasets you have downloaded besides pdsounds (see Data below)
 * configure the `config/TTS_wakeword_config.json` with your wakeword and the individual syllables of your wakeword,
-* configure the `config/TTS_engine_config.json` with your TTS settings,
-* and run `python -m data_prep.py`. 
+* configure the `config/TTS_engine_config.json` with your TTS settings.
+
+
+# Usage
+Run `python -m data_prep.py` to start the program.
+
+TODO: walk through menu items, discuss directories, etc.
+
+
 
 #  Data
 It is important to note that downloading a lot of data is vital to producing a bullet proof wake word model. In addition, it is important to note that data prep does not walk through sub directories of sound files. It only processes the top level directory. It is best to just dump audio files in the top level directory. The files can be in mp3 or wav format, data prep will convert them to wav with the the sample rate of `16000`.
