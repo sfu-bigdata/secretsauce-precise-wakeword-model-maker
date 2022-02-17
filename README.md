@@ -25,9 +25,9 @@ A user can use the [Wakeword Data Collector](https://github.com/secretsauceai/wa
 When you don't have enough data to train a model, generate it. TTS engines are scraped similar to the data collection recipe using TTS plugins from [OpenVoiceOS](https://openvoiceos.com/). The more the better! 
 #### Incremental and curriculum learning
 ![model generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_03.png)
-Only add false positives to the training/test set! Why add a bunch of files that the model can classify when you can only give the model lessons where it has difficults. 
+Only add false positives to the training/test set! Why add a bunch of files that the model can classify, when you can give the model lessons where it needs to improve. 
 
-Speaking of lessons, you don't learn by reading pages of a text book in a totally random order do you? Why should a machine learning model be subjected to this added difficutly in learning? Let the machine learn with an ordered curriculum of data. This usually boosts the model's performance over the shotgun approach by 5%-10%. Not bad!
+Speaking of lessons, you don't learn by reading pages of a text book in a totally random order, do you? Why should a machine learning model be subjected to this added difficutly in learning? Let the machine learn with an ordered curriculum of data. This usually boosts the model's performance over the shotgun approach by 5%-10%. Not bad!
 
 #### Noise generation recipes
 ![noise generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_04.png)
