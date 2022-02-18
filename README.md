@@ -5,6 +5,8 @@
 
 The Precise Wakeword Model Maker takes a sparse amount of data and creates a production quality wakeword model. It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
 
+The Preice Wakeword Model Maker pulls out all of the tricks to turn a very sparse data set into a production quality model.
+
 After collecting your wake word data set with the [Wakeword Data Collector](https://github.com/secretsauceai/wakeword-data-collector), you can use this tool to:
 * generate TTS data
 * optimally split the test/training set and test this split
@@ -24,16 +26,19 @@ A user can use the [Wakeword Data Collector](https://github.com/secretsauceai/wa
 ![TTS voices recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_02.png)
 When you don't have enough data to train a model, generate it. TTS engines are scraped similar to the data collection recipe using TTS plugins from [OpenVoiceOS](https://openvoiceos.com/). The more the better! 
 
-# TODO: add in best model selection
+### Best model selection
+![best model selection recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_03.png)
+How do you know if your test-training distibution yields the best model? When it comes to big data sets, randomly splitting it once (ie 80/20%) is good enough. However, when dealing with sparse datasets the initial test-training split becomes more important. By splitting the data set many times and training experimental models, the best initial data distribution can be found. This step can boost the model by as much as ~10% performance on the training set. 
+
 
 ### Incremental and curriculum learning
-![model generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_03.png)
+![learning recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_04.png)
 Only add false positives to the training/test set! Why add a bunch of files that the model can classify, when you can give the model lessons where it needs to improve. 
 
 Speaking of lessons, you don't learn by reading pages of a text book in a totally random order, do you? Why should a machine learning model be subjected to this added difficutly in learning? Let the machine learn with an ordered curriculum of data. This usually boosts the model's performance over the shotgun approach by 5%-10%. Not bad!
 
 ### Noise generation recipes
-![noise generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_04.png)
+![noise generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_05.png)
 Gaussian noise is mixed into the pre-existing audio recordings, this helps make the model more robust and helps with generalization of the model.
 
 A user can use other noisy data sets (ie [pdsounds](http://pdsounds.tuxfamily.org/)) to generate background noise into existing audio files, further ensuring a robust model that can wake up even in noisy environments.
