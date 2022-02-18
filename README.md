@@ -3,7 +3,7 @@
 ![Wake word](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_wakeword_scene_compressed.png?raw=true)
 ## Do you want your own personal wake word?
 
-The Precise Wakeword Model Maker takes a sparse amount of data and creates a production quality wakeword model. It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
+The Precise Wakeword Model Maker takes a sparse amount of data and creates a production quality wakeword model with [Mycroft Precise](https://github.com/MycroftAI/mycroft-precise). It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
 
 The Preice Wakeword Model Maker pulls out all of the tricks to turn a very sparse data set into a production quality model.
 
@@ -156,6 +156,10 @@ It is important to note that downloading a lot of data is vital to producing a b
 * TTS data set of [most popular EN-US words spoken by multiple TTS voices](http://downloads.openvoiceos.com/datasets/8kwordstts_en_0.1.tar.gz)
 
 
+# Running your wakeword model
+The resulting model will be a TensorFlow 1.13 precise wakeword model. It can be easily run with `precise-listen wakeword_model_name.net`, [configured to be run in Mycroft](https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/customizations/wake-word#configuring-your-precise-wake-word) or even converted to TensorFlow lite and be run by the [TensorFlow lite runner](https://github.com/OpenVoiceOS/precise-lite).
+
+
 # Secret Sauce AI
 * [Secret Sauce AI Overview](https://github.com/secretsauceai/secret_sauce_ai)
 * [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project)
@@ -165,7 +169,7 @@ It is important to note that downloading a lot of data is vital to producing a b
     * [SpeechPy MFCC in Rust](https://github.com/secretsauceai/mfcc-rust)
 
 ## Special thanks and dedication 
-Although Secret Sauce AI is always about collaboration and community, special thanks should go to [Joshua Ferguson](https://github.com/skewballfox) for doing so much testing and code refactoring.
+Although Secret Sauce AI is always about collaboration and community, special thanks should go to [Joshua Ferguson](https://github.com/skewballfox) for doing so much testing and code refactoring. We also extend a very warm thanks to the folks over at [Mycroft](https://mycroft.ai/), without whom there would be no FOSS tensorflow wakeword engine. 
 
 ### In loving memory of Heinz Sieber
 - Bartmoss
