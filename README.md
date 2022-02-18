@@ -12,6 +12,7 @@ The Preice Wakeword Model Maker pulls out all of the tricks to turn a very spars
 * [Configuration](https://github.com/secretsauceai/precise-wakeword-model-maker#configuration)
 * [Usage](https://github.com/secretsauceai/precise-wakeword-model-maker#usage)
 * [Data](https://github.com/secretsauceai/precise-wakeword-model-maker#data)
+* [Running your wakeword model](https://github.com/secretsauceai/precise-wakeword-model-maker#running-your-wakeword-model)
 
 # How does it work?
 ## A user follows a data collection recipe
