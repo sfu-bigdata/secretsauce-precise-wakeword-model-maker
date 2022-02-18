@@ -11,7 +11,7 @@ The Preice Wakeword Model Maker pulls out all of the tricks to turn a very spars
 * [Installation](https://github.com/secretsauceai/precise-wakeword-model-maker#installation)
 * [Configuration](https://github.com/secretsauceai/precise-wakeword-model-maker#configuration)
 * [Usage](https://github.com/secretsauceai/precise-wakeword-model-maker#usage)
-* [Data](https://github.com/secretsauceai/precise-wakeword-model-maker/precise-wakeword-model-maker#data)
+* [Data](https://github.com/secretsauceai/precise-wakeword-model-maker#data)
 
 # How does it work?
 ## A user follows a data collection recipe
@@ -95,7 +95,7 @@ Run `python -m data_prep` to start the Precise Wakeword Model Maker, or run in t
 
 ![Precise Wakeword Model Maker menu](https://github.com/secretsauceai/secret_sauce_ai/blob/main/precise_wakeword_model_maker_menu.png)
 
-### tl;dr If you're sure you [installed](https://github.com/secretsauceai/precise-wakeword-model-maker#installation), configured everything correctly, and got all of the [data](https://github.com/secretsauceai/precise-wakeword-model-maker/precise-wakeword-model-maker#data) you need, then go ahead and run through the steps or `5. Do it all`. 
+### tl;dr If you're sure you [installed](https://github.com/secretsauceai/precise-wakeword-model-maker#installation), configured everything correctly, and got all of the [data](https://github.com/secretsauceai/precise-wakeword-model-maker#data) you need, then go ahead and run through the steps or `5. Do it all`. 
 Just make sure you know: it will take A LONG time to run everything. 
 
 
