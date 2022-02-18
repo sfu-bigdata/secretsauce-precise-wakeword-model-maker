@@ -174,4 +174,4 @@ The resulting model will be a TensorFlow 1.13 precise wakeword model. It can be 
 Although Secret Sauce AI is always about collaboration and community, special thanks should go to [Joshua Ferguson](https://github.com/skewballfox) for doing so much testing and code refactoring. We also extend a very warm thanks to the folks over at [Mycroft](https://mycroft.ai/), without whom there would be no FOSS tensorflow wakeword engine. 
 
 ### In loving memory of Heinz Sieber
-- Bartmoss
+-Bartmoss
