@@ -40,7 +40,7 @@ A user can use other noisy data sets (ie [pdsounds](http://pdsounds.tuxfamily.or
 
 # Installation
 ## Manually installing with Python
-* System dependencies: If you are on Ubuntu, this will be done automatically in the next step.
+* System dependencies
     * python3-pip
     * libopenblas-dev
     * python3-scipy
