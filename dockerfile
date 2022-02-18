@@ -17,10 +17,10 @@ RUN ./autogen.sh
 RUN ./configure
 RUN make install
 
-# Clone Precise Wakeword Model Maker from Secret Sauce AI git (using the TTSGeneratorFeature branch for now until that's been merged)
+# Clone Precise Wakeword Model Maker from Secret Sauce AI git repo
 RUN mkdir /app 
 WORKDIR /app
-RUN git clone https://github.com/secretsauceai/precise-wakeword-model-maker.git -b TTSGeneratorFeature .
+RUN git clone https://github.com/secretsauceai/precise-wakeword-model-maker.git .
 
 # remove stuff that would break the setup from setup.sh (the default installation script from Precise uses sudo, while the container is already run in root, also we installed Cython above)
 RUN sed -i -e 's/sudo //g' /app/setup.sh
