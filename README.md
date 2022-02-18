@@ -7,6 +7,12 @@ The Precise Wakeword Model Maker takes a sparse amount of data and creates a pro
 
 The Preice Wakeword Model Maker pulls out all of the tricks to turn a very sparse data set into a production quality model.
 
+* [How does it work?](https://github.com/secretsauceai/precise-wakeword-model-maker#how-does-it-work)
+* [Installation](https://github.com/secretsauceai/precise-wakeword-model-maker#installation)
+* [Configuration](https://github.com/secretsauceai/precise-wakeword-model-maker#configuration)
+* [Usage](https://github.com/secretsauceai/precise-wakeword-model-maker#usage)
+* [Data](https://github.com/secretsauceai/precise-wakeword-model-maker/precise-wakeword-model-maker#data)
+
 # How does it work?
 ## A user follows a data collection recipe
 ![data collection recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_01.png)
