@@ -7,18 +7,10 @@ The Precise Wakeword Model Maker takes a sparse amount of data and creates a pro
 
 The Preice Wakeword Model Maker pulls out all of the tricks to turn a very sparse data set into a production quality model.
 
-After collecting your wake word data set with the [Wakeword Data Collector](https://github.com/secretsauceai/wakeword-data-collector), you can use this tool to:
-* generate TTS data
-* optimally split the test/training set and test this split
-* automatically select best base model
-* generate Gaussian noise
-* generate background noise
-* incrementally train through other noise and audio datasets (ie common voice, pdsounds)
-
 # How does it work?
 ## A user follows a data collection recipe
 ![data collection recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_01.png)
-The less the user has to initially collect, the better. 
+It all starts with a user data collection for the wakeword and not-wakeword categories.
 A user can use the [Wakeword Data Collector](https://github.com/secretsauceai/wakeword-data-collector)
 
 ## Precise Wakeword Model Maker recipes
@@ -28,27 +20,40 @@ When you don't have enough data to train a model, generate it. TTS engines are s
 
 ### Best model selection
 ![best model selection recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_03.jpg)
-How do you know if your test-training distibution yields the best model? When it comes to big data sets, randomly splitting it once (ie 80/20%) is good enough. However, when dealing with sparse datasets the initial test-training split becomes more important. By splitting the data set many times and training experimental models, the best initial data distribution can be found. This step can boost the model by as much as ~10% performance on the training set. 
+How do you know if your test-training distibution yields the best model? When it comes to big data sets, randomly splitting it once (ie 80/20%) is usually good enough. However, when dealing with sparse data sets the initial test-training split becomes more important. By splitting the data set many times and training experimental models, the best initial data distribution can be found. This step can boost the model by as much as ~10% performance on the training set. 
 
 
 ### Incremental and curriculum learning
 ![learning recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_04.jpg)
-Only add false positives(*) to the training/test set! Why add a bunch of files that the model can classify, when you can give the model lessons where it needs to improve.
+Only add false positives(*) to the training/test set. Why add a bunch of files that the model can classify correctly, when you can give the model lessons where it needs to improve.
 
 Speaking of lessons, you don't learn by reading pages of a text book in a totally random order, do you? Why should a machine learning model be subjected to this added difficutly in learning? Let the machine learn with an ordered curriculum of data. This usually boosts the model's performance over the shotgun approach by 5%-10%. Not bad!
 
-(*) NOTE: This actually worsens the raw score of model, because it only trains and tests on hard to learn examples, instead of giving the model an easy A. But honestly, if you are getting 98% on your test and/or training set and it doesn't actually work correctly in the real world, you really need to reconsider your machine learning strategy. ;) 
+(*)NOTE: This actually worsens the raw score of model, because it only trains and tests on hard to learn examples, instead of giving the model an easy A. But honestly, if you are getting 98% on your test and/or training set and it doesn't actually work correctly in the real world, you really need to reconsider your machine learning strategy. ;) 
 
 ### Noise generation recipes
 ![noise generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_05.png)
-Gaussian noise is mixed into the pre-existing audio recordings, this helps make the model more robust and helps with generalization of the model.
+Gaussian noise (static) is mixed into the pre-existing audio recordings, this helps make the model more robust and helps with generalization of the model.
 
 A user can use other noisy data sets (ie [pdsounds](http://pdsounds.tuxfamily.org/)) to generate background noise into existing audio files, further ensuring a robust model that can wake up even in noisy environments.
 
 
 # Installation
 ## Manually installing with Python
-After following the instructions (NOTE: Mycroft Precise only works for Python versions up to 3.7.x!) to install from the [Mycroft Precise readme](https://github.com/secretsauceai/precise-wakeword-model-maker#source-install) (skip over the git clone part, I assume you have git cloned this repo), go into your venv (ie `source .venv/source/bin/activate`) and run `pip install -r requirements_data_prep.txt --force-reinstall` (there seems to currently be an issue with some of the requirements from the original precise not working with current versions of certain packages)
+* System dependencies: If you are on Ubuntu, this will be done automatically in the next step.
+    * python3-pip
+    * libopenblas-dev
+    * python3-scipy
+    * cython
+    * libhdf5-dev
+    * python3-h5py
+    * portaudio19-dev
+    * ffmpeg
+    * libttspico0
+    * libttspico-utils
+* Run the setup script: `./setup.sh`
+* `pip install -r requirements_data_prep.txt --force-reinstall` (there seems to currently be an issue with some of the requirements from the original precise not working with current versions of certain packages).
+* `pip install -r TTS_generator_requirements.txt`
 
 ## Dockerfile
 * Get the dockerfile from this repo 
@@ -70,14 +75,44 @@ docker run -it \
     * `pdsounds_directory` the directory to the mp3 (or wav) files: [pdsounds](http://pdsounds.tuxfamily.org/),
 	* `extra_audio_directories_to_process`, which are all of the extra audio datasets you have downloaded besides pdsounds (see Data below)
 * configure the `config/TTS_wakeword_config.json` with your wakeword and the individual syllables of your wakeword,
-* configure the `config/TTS_engine_config.json` with your TTS settings.
+* configure the `config/TTS_engine_config.json` with your TTS settings. By default the `larynx_host` is `null`, this will use the server from [Neon AI](https://neon.ai/), you can run [Larynx](https://github.com/rhasspy/larynx) yourself and update the `larynx_host` to the correct host and port (ie `http://127.0.0.1:5002`)
 
 
 # Usage
-Run `python -m data_prep.py` to start the program.
+Run `python -m data_prep` to start the Precise Wakeword Model Maker.
 
-TODO: walk through menu items, discuss directories, etc.
+![Precise Wakeword Model Maker menu](https://github.com/secretsauceai/secret_sauce_ai/blob/main/precise_wakeword_model_maker_menu.png)
 
+
+## 1. Generate TTS wakeword data
+The wakeword and wakeword syllables in `config/TTS_wakeword_config.json` are used to scrape the TTS voices in `config/TTS_engine_config.json`. The results will be in `out/TTS_generated_converted/`. 
+
+There are three types of resulting files:
+* wakeword audio from the TTS engines: `out/TTS_generated_converted/wake-word/TTS/`
+* not-wakeword audio from the TTS engines: `out/TTS_generated_converted/not-wake-word/TTS/`
+	* individual syllables of the wakeword, ie 'hey', 'jar', 'vis'
+	* sequential permutations of the wakeword syllables, ie 'hey jar' or 'javis' 
+
+The syllables and sequential permutations are vital to ensure that the model doesn't get lazy and focus on parts of the wakeword, but the whole wakeword.
+
+## 2. Optimally split and create a base model from wake-word-recorder data
+For effective machine learning, we need to have a good training and test set. This step generates 10 different distributions between the test and training set, then trains an experimental model for each and finally keeps the one with the lowest loss (the model with the highest training set accuracy) renaming the model and its ditectory of data to your `wakeword_model_name` in `config/data_prep_user_configuration.json`, `out/wakeword_model_name/`. 
+
+The experimental directories and models are temporarily stored in `out/` as `experiment_n` where n is the number of the experiment. 
+
+The data is split in different ways, depending on the kind of data. This can be configured in `config/data_prep_system_configuration.json`. Unless you are using another source to collect data than [Wakeword Data Collector](https://github.com/secretsauceai/wakeword-data-collector), these settings should work fine. 
+* `random_split_directories`: 80/20% totally randomly
+* `even_odd_split_directories`: 50/50% even-odd splitting
+* `three_four_split_directories`: 3/4th splitting
+
+The TTS generated data is split 80/20%. 
+
+## 3. Generate extra data
+Gaussian and background noise (ie [pdsounds](http://pdsounds.tuxfamily.org/)) is mixed into...
+
+## 4. Generate further data from other data sets
+## 5. Do it all
+## 6. Exit
 
 
 #  Data
