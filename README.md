@@ -79,7 +79,14 @@ docker run -it \
 
 
 # Usage
-Run `python -m data_prep` to start the Precise Wakeword Model Maker.
+
+Run `python -m data_prep` to start the Precise Wakeword Model Maker, or run in the command line with arguments:
+* `-h` or `--help`
+* `-t` or `--tts-generation`
+* `-b` or `--base-model`
+* `-g` or `--generate-data`
+* `-e` or `--generate-extra`
+* `-a` or `--all`
 
 ![Precise Wakeword Model Maker menu](https://github.com/secretsauceai/secret_sauce_ai/blob/main/precise_wakeword_model_maker_menu.png)
 
