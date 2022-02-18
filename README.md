@@ -83,6 +83,8 @@ Run `python -m data_prep` to start the Precise Wakeword Model Maker.
 
 ![Precise Wakeword Model Maker menu](https://github.com/secretsauceai/secret_sauce_ai/blob/main/precise_wakeword_model_maker_menu.png)
 
+### tl;dr If you're sure you installed and configured everything correctly, and got all of the Data you need, then go ahead and run `5. Do it all`
+
 
 ## 1. Generate TTS wakeword data
 The wakeword and wakeword syllables in `config/TTS_wakeword_config.json` are used to scrape the TTS voices in `config/TTS_engine_config.json`. The results will be in `out/TTS_generated_converted/`. 
