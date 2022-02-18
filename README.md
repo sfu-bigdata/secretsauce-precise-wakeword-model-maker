@@ -33,9 +33,11 @@ How do you know if your test-training distibution yields the best model? When it
 
 ### Incremental and curriculum learning
 ![learning recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_04.jpg)
-Only add false positives to the training/test set! Why add a bunch of files that the model can classify, when you can give the model lessons where it needs to improve. 
+Only add false positives(*) to the training/test set! Why add a bunch of files that the model can classify, when you can give the model lessons where it needs to improve.
 
 Speaking of lessons, you don't learn by reading pages of a text book in a totally random order, do you? Why should a machine learning model be subjected to this added difficutly in learning? Let the machine learn with an ordered curriculum of data. This usually boosts the model's performance over the shotgun approach by 5%-10%. Not bad!
+
+(*) NOTE: This actually worsens the raw score of model, because it only trains and tests on hard to learn examples, instead of giving the model an easy A. But honestly, if you are getting 98% on your test and/or training set and it doesn't actually work correctly in the real world, you really need to reconsider your machine learning strategy. ;) 
 
 ### Noise generation recipes
 ![noise generation recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_05.png)
