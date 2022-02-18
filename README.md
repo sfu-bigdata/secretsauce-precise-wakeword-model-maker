@@ -79,7 +79,6 @@ docker run -it \
 
 
 # Usage
-
 Run `python -m data_prep` to start the Precise Wakeword Model Maker, or run in the command line with arguments:
 * `-h` or `--help`
 * `-t` or `--tts-generation`
