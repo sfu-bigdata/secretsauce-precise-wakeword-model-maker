@@ -97,7 +97,7 @@ Run `python -m data_prep` to start the Precise Wakeword Model Maker, or run in t
 
 ![Precise Wakeword Model Maker menu](https://github.com/secretsauceai/secret_sauce_ai/blob/main/precise_wakeword_model_maker_menu.png)
 
-### tl;dr If you're sure you [installed](https://github.com/secretsauceai/precise-wakeword-model-maker#installation), configured everything correctly, and got all of the [data](https://github.com/secretsauceai/precise-wakeword-model-maker#data) you need, then go ahead and run through the steps or `5. Do it all`. 
+### tl;dr If you're sure you [installed](https://github.com/secretsauceai/precise-wakeword-model-maker#installation) and configured everything correctly, and got all of the [data](https://github.com/secretsauceai/precise-wakeword-model-maker#data) you need, then go ahead and run through the steps or `5. Do it all`. 
 Just make sure you know: it will take A LONG time to run everything. 
 
 
