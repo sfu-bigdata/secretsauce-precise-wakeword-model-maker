@@ -5,7 +5,7 @@
 
 The Precise Wakeword Model Maker takes a sparse amount of data and creates a production quality wakeword model with [Mycroft Precise](https://github.com/MycroftAI/mycroft-precise). It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
 
-The Preice Wakeword Model Maker pulls out all of the tricks to turn a very sparse data set into a production quality model.
+The Precise Wakeword Model Maker pulls out all of the tricks to turn a very sparse data set into a production quality model.
 
 * [How does it work?](https://github.com/secretsauceai/precise-wakeword-model-maker#how-does-it-work)
 * [Installation](https://github.com/secretsauceai/precise-wakeword-model-maker#installation)
