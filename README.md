@@ -83,7 +83,7 @@ Run `python -m data_prep` to start the Precise Wakeword Model Maker.
 
 ![Precise Wakeword Model Maker menu](https://github.com/secretsauceai/secret_sauce_ai/blob/main/precise_wakeword_model_maker_menu.png)
 
-### tl;dr If you're sure you installed and configured everything correctly, and got all of the Data you need, then go ahead and run `5. Do it all`
+### tl;dr If you're sure you installed and configured everything correctly, and got all of the [Data](https://github.com/secretsauceai/precise-wakeword-model-maker/blob/TTSGeneratorFeature/README.md#data) you need, then go ahead and run `5. Do it all`. Just make sure you know: it will take A LONG time to run everything. 
 
 
 ## 1. Generate TTS wakeword data
