@@ -48,6 +48,7 @@ A user can use other noisy data sets (ie [pdsounds](http://pdsounds.tuxfamily.or
 
 # Installation
 ## Manually installing with Python
+Precise requires Python 3.7 (for tensorflow 1.13 support)
 * System dependencies
     * python3-pip
     * libopenblas-dev
