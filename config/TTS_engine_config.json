@@ -14,7 +14,12 @@
 },
 {
     "plugin": "ovos-tts-plugin-pico",
-    "voice": null,
+    "voice": "en-US",
+    "output_type": "wav"
+},
+{
+    "plugin": "ovos-tts-plugin-pico",
+    "voice": "en-GB",
     "output_type": "wav"
 },
 {

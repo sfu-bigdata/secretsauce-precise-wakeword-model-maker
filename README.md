@@ -3,9 +3,17 @@
 ![Wake word](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_wakeword_scene_compressed.png?raw=true)
 ## Do you want your own personal wake word?
 
-The Precise Wakeword Model Maker takes a sparse amount of data and creates a production quality wakeword model. It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
+The Precise Wakeword Model Maker takes a sparse amount of data and creates a production quality wakeword model with [Mycroft Precise](https://github.com/MycroftAI/mycroft-precise). It's part of the Secret Sauce AI [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project). 
 
-The Preice Wakeword Model Maker pulls out all of the tricks to turn a very sparse data set into a production quality model.
+The Precise Wakeword Model Maker pulls out all of the tricks in AI to turn a very sparse data set into a production quality model.
+
+* [How does it work?](https://github.com/secretsauceai/precise-wakeword-model-maker#how-does-it-work)
+* [Installation](https://github.com/secretsauceai/precise-wakeword-model-maker#installation)
+* [Configuration](https://github.com/secretsauceai/precise-wakeword-model-maker#configuration)
+* [Usage](https://github.com/secretsauceai/precise-wakeword-model-maker#usage)
+* [Data](https://github.com/secretsauceai/precise-wakeword-model-maker#data)
+* [Running your wakeword model](https://github.com/secretsauceai/precise-wakeword-model-maker#running-your-wakeword-model)
+* [Secret Sauce AI](https://github.com/secretsauceai/precise-wakeword-model-maker#secret-sauce-ai)
 
 # How does it work?
 ## A user follows a data collection recipe
@@ -27,7 +35,7 @@ How do you know if your test-training distibution yields the best model? When it
 ![learning recipe](https://github.com/secretsauceai/secret_sauce_ai/blob/main/SSAI_ww_recipe_04.jpg)
 Only add false positives(*) to the training/test set. Why add a bunch of files that the model can classify correctly, when you can give the model lessons where it needs to improve.
 
-Speaking of lessons, you don't learn by reading pages of a text book in a totally random order, do you? Why should a machine learning model be subjected to this added difficutly in learning? Let the machine learn with an ordered curriculum of data. This usually boosts the model's performance over the shotgun approach by 5%-10%. Not bad!
+Speaking of lessons, you don't learn by reading pages of a text book in a totally random order, do you? Why should a machine learning model be subjected to this added difficulty in learning? Let the machine learn with an ordered curriculum of data. This usually boosts the model's performance over the shotgun approach by 5%-10%. Not bad!
 
 (*)NOTE: This actually worsens the raw score of model, because it only trains and tests on hard to learn examples, instead of giving the model an easy A. But honestly, if you are getting 98% on your test and/or training set and it doesn't actually work correctly in the real world, you really need to reconsider your machine learning strategy. ;) 
 
@@ -40,6 +48,7 @@ A user can use other noisy data sets (ie [pdsounds](http://pdsounds.tuxfamily.or
 
 # Installation
 ## Manually installing with Python
+Precise requires Python 3.7 (for tensorflow 1.13 support)
 * System dependencies
     * python3-pip
     * libopenblas-dev
@@ -79,8 +88,9 @@ docker run -it \
 
 
 # Usage
+Note: Don't forget to activate your venv: `source venv/bin/activate`
 
-Run `python -m data_prep` to start the Precise Wakeword Model Maker, or run in the command line with arguments:
+Run `python data_prep` to start the Precise Wakeword Model Maker, or run in the command line with arguments:
 * `-h` or `--help`
 * `-t` or `--tts-generation`
 * `-b` or `--base-model`
@@ -90,7 +100,7 @@ Run `python -m data_prep` to start the Precise Wakeword Model Maker, or run in t
 
 ![Precise Wakeword Model Maker menu](https://github.com/secretsauceai/secret_sauce_ai/blob/main/precise_wakeword_model_maker_menu.png)
 
-### tl;dr If you're sure you [installed](https://github.com/secretsauceai/precise-wakeword-model-maker/blob/TTSGeneratorFeature/README.md#installation), configured everything correctly, and got all of the [data](https://github.com/secretsauceai/precise-wakeword-model-maker/blob/TTSGeneratorFeature/README.md#data) you need, then go ahead and run through the steps or `5. Do it all`. 
+### tl;dr If you're sure you [installed](https://github.com/secretsauceai/precise-wakeword-model-maker#installation) and configured everything correctly, and got all of the [data](https://github.com/secretsauceai/precise-wakeword-model-maker#data) you need, then go ahead and run through the steps or `5. Do it all`. 
 Just make sure you know: it will take A LONG time to run everything. 
 
 
@@ -151,6 +161,10 @@ It is important to note that downloading a lot of data is vital to producing a b
 * TTS data set of [most popular EN-US words spoken by multiple TTS voices](http://downloads.openvoiceos.com/datasets/8kwordstts_en_0.1.tar.gz)
 
 
+# Running your wakeword model
+The resulting model will be a TensorFlow 1.13 precise wakeword model. It can be easily run with `precise-listen wakeword_model_name.net`, [configured to be run in Mycroft](https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/customizations/wake-word#configuring-your-precise-wake-word) or even converted to TensorFlow lite and be run by the [TensorFlow lite runner](https://github.com/OpenVoiceOS/precise-lite).
+
+
 # Secret Sauce AI
 * [Secret Sauce AI Overview](https://github.com/secretsauceai/secret_sauce_ai)
 * [Wakeword Project](https://github.com/secretsauceai/secret_sauce_ai/wiki/Wakeword-Project)
@@ -159,24 +173,8 @@ It is important to note that downloading a lot of data is vital to producing a b
     * [Precise Rust Engine](https://github.com/sheosi/precise-rs)
     * [SpeechPy MFCC in Rust](https://github.com/secretsauceai/mfcc-rust)
 
-# ToDO
-This is still a work in progress. 
-* ~~in `test_train_split()` change paragraph and variations to an even/odd split instead of random~~
-* ~~in `run_precise_train` how do you run the training properly (in command line: precise-train) from the class or otherwise? It seems to run with only one parameter where we have `precise-train -e 350 self.experiment_path_01 experiment_01.net`~~
-* ~~refactor code for repeatitive code~~
-* ~~in the `wakeword-data-collector` change variations to be stored in their own sub dir in `wake-word/variations`~~
-* ~~get the results of running precise-train `accuracy` and `val_accuracy`~~
-* ~~iteratively run 5 experiments saving the results~~
-* ~~compare results to select best model based on `accuracy` and `val_accuracy`~~
-* ~~add in proper split for other categories (ie paragraph), instead of random~~
-* ~~delete unused experiments directories~~ (still need to clean up the precise model files generated)
-* ~~adding noise~~
-    * ~~Gaussian noise~~
-    * ~~background noise (precise-add-noise)~~
-* ~~Refactor model analytics and choosing the best model~~
-* ~~Refactor the training function to pass both measures: the default `loss` and `val_loss`~~
-* Test when and number of epochs to switch to `val_loss` (this prevents overfitting!)
-* test output models (both ~~tf1.13~~ and tflite) for production
-   * hope this one passes 
-* ~~CLI stuff~~
-* Clean up code (again!)
+## Special thanks and dedication 
+Although Secret Sauce AI is always about collaboration and community, special thanks should go to [Joshua Ferguson](https://github.com/skewballfox) for doing so much testing and code refactoring. We also extend a very warm thanks to the folks over at [Mycroft](https://mycroft.ai/), without whom there would be no FOSS tensorflow wakeword engine. 
+
+### In loving memory of Heinz Sieber
+-Bartmoss
