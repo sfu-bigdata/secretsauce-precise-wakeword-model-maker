@@ -147,10 +147,10 @@ You should download at least one very large data set (at least 50,000 random utt
 These data sets can be added into `config/data_prep_user_configuration.json` where `extra_audio_directories_to_process` is the list of the directories where the data sets sources are (it is important to configure the directories directly to where the mp3 or wav files can be found) and `extra_audio_directories_labels` are the labels (sub directories) they will be stored into (ie `non-utterances`, `utterances`, etc. in `out/wakeword_model_name/random/`. Each directory must have a label. 
 
 ## 5. Do it all
-You can do it all
+You can do it all!
 
 ## 6. Exit
-Always know your excape route.
+Always know yourescape route.
 
 
 #  Data
