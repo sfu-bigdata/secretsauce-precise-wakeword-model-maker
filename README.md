@@ -150,7 +150,7 @@ These data sets can be added into `config/data_prep_user_configuration.json` whe
 You can do it all!
 
 ## 6. Exit
-Always know yourescape route.
+Always know your escape route.
 
 
 #  Data
