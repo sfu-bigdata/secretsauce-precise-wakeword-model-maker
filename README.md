@@ -88,7 +88,7 @@ docker run -it \
 
 
 # Usage
-Note: Don't forget to activate your venv: `source venv/bin/activate`
+Note: don't forget to activate your venv `source venv/bin/activate`
 
 Run `python data_prep` to start the Precise Wakeword Model Maker, or run in the command line with arguments:
 * `-h` or `--help`
