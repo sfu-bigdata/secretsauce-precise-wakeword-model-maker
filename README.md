@@ -69,7 +69,7 @@ Precise requires Python 3.7 (for tensorflow 1.13 support)
 * Build the image from the dockerfile
 	* Get the dockerfile from this repo 
 	* `docker build -t precise-wakeword-model-maker .`
-* Or [get the image from dockerhub](https://hub.docker.com/repository/docker/bartmoss/precise-wakeword-model-maker/)
+* Or [pull the image from dockerhub](https://hub.docker.com/repository/docker/bartmoss/precise-wakeword-model-maker/)
 * You can run the container with such a command:
 
 ```
