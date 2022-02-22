@@ -64,9 +64,11 @@ Precise requires Python 3.7 (for tensorflow 1.13 support)
 * `pip install -r requirements_data_prep.txt --force-reinstall` (there seems to currently be an issue with some of the requirements from the original precise not working with current versions of certain packages).
 * `pip install -r TTS_generator_requirements.txt`
 
-## Dockerfile
-* Get the dockerfile from this repo 
-* `docker build -t precise-wakeword-model-maker .`
+## Docker
+* Build the image from the dockerfile
+	* Get the dockerfile from this repo 
+	* `docker build -t precise-wakeword-model-maker .`
+* Or [get the image from dockerhub](https://hub.docker.com/repository/docker/bartmoss/precise-wakeword-model-maker/)
 * You can run the container with such a command:
 
 ```
