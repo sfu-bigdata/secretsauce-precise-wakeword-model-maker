@@ -61,6 +61,7 @@ Precise requires Python 3.7 (for tensorflow 1.13 support)
     * libttspico0
     * libttspico-utils
 * Run the setup script: `./setup.sh`
+* activate your venv: `source .venv/bin/activate`
 * `pip install -r requirements_data_prep.txt --force-reinstall` (there seems to currently be an issue with some of the requirements from the original precise not working with current versions of certain packages).
 * `pip install -r TTS_generator_requirements.txt`
 
