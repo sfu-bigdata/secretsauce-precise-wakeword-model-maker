@@ -49,14 +49,14 @@ A user can use other noisy data sets (ie [pdsounds](http://pdsounds.tuxfamily.or
 # Installation
 ## Manually installing with Python
 Precise requires Python 3.7 (for tensorflow 1.13 support)
-* System dependencies
-    * python3-pip
-    * libopenblas-dev
-    * python3-scipy
-    * cython
-    * libhdf5-dev
-    * python3-h5py
-    * portaudio19-dev
+* System dependencies: you can `apt-get install` these
+    * python3-pip (`setup.sh` will install this for ubuntu)
+    * libopenblas-dev (`setup.sh` will install this for ubuntu)
+    * python3-scipy (`setup.sh` will install this for ubuntu)
+    * cython (`setup.sh` will install this for ubuntu)
+    * libhdf5-dev (`setup.sh` will install this for ubuntu)
+    * python3-h5py (`setup.sh` will install this for ubuntu)
+    * portaudio19-dev (`setup.sh` will install this for ubuntu)
     * ffmpeg
     * libttspico0
     * libttspico-utils
