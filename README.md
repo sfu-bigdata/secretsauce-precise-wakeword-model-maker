@@ -76,7 +76,7 @@ Precise requires Python 3.7 (for tensorflow 1.13 support)
 docker run -it \
   -v "local_directory_for_model_output:/app/out" \
   -v "local_collected_audio_directory:/data" \
-  -v "local_directory_path_for_config/:/app/config" \
+  -v "local_directory_path_for_config:/app/config" \
   bartmoss/precise-wakeword-model-maker
   ```
 
@@ -132,7 +132,11 @@ The data is split in different ways, depending on the kind of data. This can be 
 
 The TTS generated data is split 80/20%. 
 
+Inside `app` folder within the container create folder `audio/flow_test_delete_after/` and inside that place folders: `wake-word`,`not-wake-word` and `random` which were generated from running wakeword-data-collector model.
+
 Finally, the model will be incrementally trained to find false-positives from the random recordings (ie TV and natural conversations) in `audio_source_directory/random/user_collected/` where `audio_source_directory` is configured in `config/data_prep_user_configuration.json` and benchmarked. 
+
+
 
 ## 3. Generate extra data
 Gaussian and background noise (ie [pdsounds](http://pdsounds.tuxfamily.org/)) is mixed is mixed into the audio files to produce further audio files. 
@@ -140,6 +144,8 @@ Gaussian and background noise (ie [pdsounds](http://pdsounds.tuxfamily.org/)) is
 The list of directories for both are in  `config/data_prep_system_configuration.json`:
 * Background audio is mixed in using `pdsounds_directory`in `config/data_prep_user_configuration.json`, each file mixed produces 5 files with random portions of audio mixed into the background. The `source_directories` are where the files are temporarily generated and the `destination_directories` are where they are added into the model's data directories. This uses Precise's `precise-add-noise` feature.
 *  Gaussian noise is mixed in, each file produces 4 additional files with the following levels of Gaussian noise: 15%, 30%, 50%, 60%. 
+
+Inside folder `audio/flow_test_delete_after/` which is inside app folder within container place folder: `pdsounds_march2009` which we downloaded from [pdsounds](http://pdsounds.tuxfamily.org/) by clicking download-all and unzipping. 
 
 Finally, the model is trained on this data and benchmarked.
 
