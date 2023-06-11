@@ -110,6 +110,12 @@ Just make sure you know: it will take A LONG time to run everything.
 ## 1. Generate TTS wakeword data
 The wakeword and wakeword syllables in `config/TTS_wakeword_config.json` are used to scrape the TTS voices in `config/TTS_engine_config.json`. The results will be in `out/TTS_generated_converted/`. 
 
+Configure larynx host first and run it locally on http://127.0.0.1:5002, then change the TTS_engine_config.json to below:
+
+```
+"larynx_host": "http://127.0.0.1:5002"
+```
+
 There are three types of resulting files:
 * wakeword audio from the TTS engines: `out/TTS_generated_converted/wake-word/TTS/`
 * not-wakeword audio from the TTS engines: `out/TTS_generated_converted/not-wake-word/TTS/`
